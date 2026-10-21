@@ -1,0 +1,40 @@
+[workspace]
+members = ["crates/un-git-core", "crates/un-git-cli", "apps/desktop/src-tauri"]
+default-members = ["crates/un-git-core", "crates/un-git-cli"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+
+[workspace.dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+thiserror = "2"
+sha2 = "0.10"
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+tempfile = "3"
+base64 = "0.22"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time", "sync"] }
+
+[profile.dev]
+debug = 1
+split-debuginfo = "unpacked"
+
+[profile.dev.package."*"]
+debug = 0
+
+[profile.test]
+debug = 1
+split-debuginfo = "unpacked"
+
+[profile.test.package."*"]
+debug = 0
+
+[profile.release]
+strip = true
+lto = "thin"
+codegen-units = 1
+

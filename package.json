@@ -1,0 +1,25 @@
+{
+  "name": "un-git",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/desktop"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @un-git/desktop",
+    "build": "npm run build --workspace @un-git/desktop",
+    "test": "npm run test --workspace @un-git/desktop",
+    "typecheck": "npm run typecheck --workspace @un-git/desktop",
+    "desktop": "npm run tauri --workspace @un-git/desktop -- dev",
+    "desktop:build": "npm run tauri --workspace @un-git/desktop -- build",
+    "test:core": "cargo test --workspace --exclude un-git-desktop",
+    "doctor": "cargo run -q -p un-git-cli -- doctor",
+    "setup:worker": "python3 scripts/setup_worker.py",
+    "check": "npm run typecheck && npm run test && npm run build && cargo test --workspace --exclude un-git-desktop",
+    "clean": "cargo clean",
+    "clean:all": "cargo clean && rm -rf apps/desktop/dist"
+  },
+  "devDependencies": {
+    "prettier": "3.8.1"
+  }
+}
