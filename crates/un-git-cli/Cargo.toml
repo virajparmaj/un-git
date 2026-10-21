@@ -1,0 +1,22 @@
+[package]
+name = "un-git-cli"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "un-git"
+path = "src/main.rs"
+
+[features]
+default = []
+writer = ["un-git-core/writer"]
+
+[dependencies]
+un-git-core = { path = "../un-git-core" }
+clap = { version = "4.6", features = ["derive"] }
+serde_json.workspace = true
+tokio.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+libc = "0.2"

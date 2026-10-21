@@ -1,0 +1,30 @@
+[package]
+name = "un-git-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[features]
+default = []
+writer = []
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+sha2.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+tempfile.workspace = true
+base64.workspace = true
+tokio.workspace = true
+rusqlite = { version = "0.37", features = ["bundled"] }
+fs2 = "0.4"
+libc = "0.2"
+reqwest = { version = "0.13", features = ["json", "form"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+security-framework = "3.7"
+
+[dev-dependencies]
+tempfile.workspace = true
