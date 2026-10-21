@@ -1,0 +1,21 @@
+[package]
+name = "un-git-desktop"
+version.workspace = true
+edition.workspace = true
+default-run = "un-git-desktop"
+
+[build-dependencies]
+tauri-build = { version = "2.6", features = [] }
+
+[dependencies]
+tauri = { version = "2.11", features = [] }
+tauri-plugin-dialog = "2.7"
+un-git-core = { path = "../../../crates/un-git-core" }
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+chrono.workspace = true
+
+[features]
+default = []
+writer = ["un-git-core/writer"]

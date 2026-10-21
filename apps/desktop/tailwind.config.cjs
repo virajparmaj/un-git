@@ -1,0 +1,1 @@
+module.exports = { content: ['./index.html','./src/**/*.{ts,tsx}'],theme:{extend:{colors:{background:'var(--background)',surface:'var(--surface)',accent:'var(--accent)',destructive:'var(--destructive)',border:'var(--border)'},fontFamily:{sans:['Geist Sans','sans-serif'],mono:['Geist Mono','monospace']}}},plugins:[] };
